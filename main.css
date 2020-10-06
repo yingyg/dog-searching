@@ -1,0 +1,344 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+h1 {
+  margin: 10px 0;
+  text-align: center;
+}
+.container {
+  width: 85vw;
+  max-width: 900px;
+  margin: 10px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.svg-container {
+  padding-right: 4px;
+  flex: 32%;
+  cursor: pointer;
+
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  /* aspect ratio  padding-bottom: 0%;*/
+  vertical-align: top;
+  overflow: hidden;
+}
+.svg {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.sign {
+  opacity: 0.7 !important;
+}
+.dog {
+  transform-origin: center;
+  transform-box: fill-box;
+  transition: 3s;
+  transform: translateX(-150%) translateY(50%) scale(1.4);
+}
+/* svg1 */
+#watermill {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: watermill 1.5s linear infinite;
+}
+
+@keyframes watermill {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+/* svg2 */
+#monk {
+  transform-origin: top;
+  transform-box: fill-box;
+  animation: monk 5s infinite forwards;
+}
+@keyframes monk {
+  
+  from{transform:translate(250%,-180%) scale(.5) }
+  to{transform:translate(50%,-50%) scale(1.5)}
+  
+}
+#left-lower-arm{
+  transform-origin: top;
+  transform-box: fill-box;
+  animation: monk-arm 5s ease-in infinite;
+  
+}
+@keyframes monk-arm {
+  from {
+    transform: rotateZ(-50deg) 
+
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+
+#right-leg{
+  transform-origin: top;
+  transform-box: fill-box;
+  animation: leg 5s linear infinite;
+}
+@keyframes leg {
+  0% {
+    transform: rotateX(80deg) rotateZ(30deg)
+
+  }
+  60% {
+    transform: rotateX(0deg);
+  }
+}
+
+
+/* svg3 */
+#eagle {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: eagle 4s linear infinite forwards;
+}
+@keyframes eagle {
+  from {
+    transform: rotateZ(1,1,1,50deg) translateX(300%);
+  }
+  to {
+    transform: scale(2) rotateZ(-40deg) translateX(-300%);
+  }
+}
+
+/* svg4 */
+#top-fish {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: fish 3s ease-out infinite;
+}
+@keyframes fish {
+  0% {
+    transform: rotateZ(-180deg);
+  }
+  25% {
+    transform: rotateZ(-170deg);
+  }
+
+  50% {
+    transform: rotateZ(180deg) translate(-50%, -50%);
+  }
+  50% {
+    transform: rotateZ(180deg) translate(-50%, -50%);
+  }
+  100% {
+    transform: rotateZ(180deg) translate(-50%, -50%);
+  }
+}
+#top-flashes {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: splashes 2s ease-out infinite;
+  animation-delay: 2s;
+}
+@keyframes splashes {
+  from {
+    opacity: 0;
+    transform: translate(-150%, 50%) scale(1.5);
+  }
+ to {
+    opacity: 1;
+    transform: translate(-150%, 0%) scale(1.5);
+  }
+  
+}
+/* svg5 */
+#left-window {
+  transform-origin: left;
+  transform-box: fill-box;
+  animation: left-window 2s ease-in-out forwards;
+}
+@keyframes left-window {
+  to {
+    transform: rotateY(180deg);
+  }
+}
+#right-window {
+  transform-origin: right;
+  transform-box: fill-box;
+  animation: right-window 2s ease-in-out forwards;
+}
+@keyframes right-window {
+  to {
+    transform: rotateY(-180deg);
+  }
+}
+#house5 {
+  transform-origin: center;
+  transform: scale(2.1);
+}
+/* svg6 */
+#house6 {
+  transform-origin: center;
+  transform: scale(2.5);
+}
+#door {
+  transform-origin: left;
+  transform-box: fill-box;
+  animation: door 5s ease-in-out 1 forwards;
+  
+  transition: 4s;
+}
+@keyframes door {
+  from {
+    transform: translateX(0%);
+  }
+  
+  to{
+    transform: translateX(-100%);
+  }
+}
+/* svg7 */
+#tree-one,
+#tree-two,
+#tree-three,
+#tree-four #tree-seven,
+#tree-six,
+#tree-four {
+  transform-origin: top;
+  transform-box: fill-box;
+  animation: tree 5s ease-in-out infinite;
+}
+@keyframes tree {
+  35% {
+    transform: rotateZ(5deg);
+  }
+  60% {
+    transform: rotateZ(0deg);
+  }
+  
+  90% {
+    transform: rotateZ(-5deg);
+  }
+}
+#tree-two {
+  animation-delay: 0.5s;
+}
+#tree-three {
+  animation-delay: 1s;
+}
+
+#tree-four {
+  animation-delay: 1.5s;
+}
+#tree-six {
+  animation-delay: 2s;
+}
+/* svg8 */
+#duck-one,
+#duck-two,
+#duck-three {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: ducks 5s ease-in-out infinite;
+}
+@keyframes ducks {
+  25% {
+    transform: rotateZ(0deg);
+  }
+  50% {
+    transform: rotateZ(-90deg);
+  }
+  90% {
+    transform: rotateZ(-30deg);
+  }
+  90% {
+    transform: rotateZ(0deg);
+  }
+}
+#duck-two {
+  animation-delay: 1s;
+}
+#duck-three {
+  animation: duck 7s ease-in-out infinite;
+}
+@keyframes duck {
+  25% {
+    transform: rotateZ(0deg);
+  }
+  50% {
+    transform: rotateZ(90deg);
+  }
+  90% {
+    transform: rotateZ(30deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+.upper-foot,
+.lower-foot {
+  transform-origin: left;
+  transform-box: fill-box;
+  animation: foot 0.5s ease-in-out infinite;
+}
+.lower-foot {
+  animation-delay: 0.25s;
+}
+@keyframes foot {
+  25% {
+    transform: rotateZ(0deg) skew(10deg, 10deg);
+  }
+  50% {
+    transform: rotateZ(30deg) skew(30deg, 10deg);
+  }
+  90% {
+    transform: rotateZ(15deg) skew(20deg, -40deg);
+  }
+  100% {
+    transform: rotateZ(0deg) skew(-10deg, 10deg);
+  }
+}
+/* svg9 */
+#pavilion{
+  transform-origin: bottom;
+  transform:scale(2.1);
+}
+#girl-head{
+  transform-origin: bottom;
+  transform-box: fill-box;
+  animation: head 5s ease-in-out infinite;
+  
+  
+}
+@keyframes head{
+  0%{
+    transform:rotateZ(5deg);
+  }
+ 30%{transform:rotateZ(20deg);}
+  60%{transform:rotateZ(-19deg);}
+  100%{
+    transform:rotateZ(-5deg);
+  }
+}
+
+#left-arm{
+  transform-origin: left;
+  transform-box: fill-box; 
+  animation: left-arm 5s ease-in-out infinite;
+}
+@keyframes left-arm{
+  0%{
+    transform:rotateZ(5deg);
+  }
+ 30%{transform:rotateZ(10deg);}
+  60%{transform:rotateZ(-10deg);}
+  100%{
+    transform:rotateZ(-5deg);
+  }
+}
