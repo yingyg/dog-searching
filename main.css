@@ -8,41 +8,48 @@ h1 {
   text-align: center;
 }
 .container {
-  width: 85vw;
-  max-width: 900px;
+  width: 90vw;
+  max-width: 960px;
   margin: 10px auto;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 }
-.svg-container {
-  padding-right: 4px;
-  flex: 32%;
-  cursor: pointer;
 
-  display: inline-block;
+.svg-container {
+  flex: 30%;
   position: relative;
+  margin-right: 3px;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  /* aspect ratio  padding-bottom: 0%;*/
-  vertical-align: top;
-  overflow: hidden;
+  height: 100%;
+  cursor: pointer;
+  background-color: black;
+  opacity: 0;
+  z-index: 1;
 }
 .svg {
-  display: inline-block;
   position: absolute;
   top: 0;
   left: 0;
 }
+
 .sign {
-  opacity: 0.7 !important;
+  opacity: 0;
+  transition: 3s;
 }
 .dog {
   transform-origin: center;
   transform-box: fill-box;
   transition: 3s;
-  transform: translateX(-150%) translateY(50%) scale(1.4);
+  transform: translateX(-200%) translateY(50%) scale(5) skewX(-20deg);
 }
 /* svg1 */
-#watermill {
+.watermill {
   transform-origin: center;
   transform-box: fill-box;
   animation: watermill 1.5s linear infinite;
@@ -57,69 +64,65 @@ h1 {
   }
 }
 /* svg2 */
-#monk {
+.monk {
   transform-origin: top;
   transform-box: fill-box;
-  animation: monk 5s infinite forwards;
+  animation: monk 3s 1 forwards;
 }
 @keyframes monk {
-  
-  from{transform:translate(250%,-180%) scale(.5) }
-  to{transform:translate(50%,-50%) scale(1.5)}
-  
+  from {
+    transform: translate(250%, -180%) scale(0.5);
+  }
+  to {
+    transform: translate(50%, -50%) scale(1.5);
+  }
 }
-#left-lower-arm{
+.left-lower-arm {
   transform-origin: top;
   transform-box: fill-box;
-  animation: monk-arm 5s ease-in infinite;
-  
+  animation: monk-arm 3s ease-in 1;
 }
 @keyframes monk-arm {
   from {
-    transform: rotateZ(-50deg) 
-
+    transform: rotateZ(-50deg);
   }
   to {
     transform: rotateZ(0deg);
   }
 }
 
-#right-leg{
+.right-leg {
   transform-origin: top;
   transform-box: fill-box;
-  animation: leg 5s linear infinite;
+  animation: leg 3s linear 1;
 }
 @keyframes leg {
   0% {
-    transform: rotateX(80deg) rotateZ(30deg)
-
+    transform: rotateX(80deg) rotateZ(30deg);
   }
   60% {
     transform: rotateX(0deg);
   }
 }
 
-
 /* svg3 */
-#eagle {
-  transform-origin: center;
-  transform-box: fill-box;
-  animation: eagle 4s linear infinite forwards;
+.eagle {
+  animation: eagle 3.5s ease-in-out 1 forwards;
 }
 @keyframes eagle {
   from {
-    transform: rotateZ(1,1,1,50deg) translateX(300%);
+    transform: rotateX(70deg);
   }
   to {
-    transform: scale(2) rotateZ(-40deg) translateX(-300%);
+    transform: skewX(30deg) scale(3) translate(-3200%, 700%);
   }
 }
 
 /* svg4 */
-#top-fish {
+.fish {
   transform-origin: center;
   transform-box: fill-box;
-  animation: fish 3s ease-out infinite;
+  animation: fish 3s ease-out 1 forwards;
 }
 @keyframes fish {
   0% {
@@ -136,28 +139,32 @@ h1 {
     transform: rotateZ(180deg) translate(-50%, -50%);
   }
   100% {
-    transform: rotateZ(180deg) translate(-50%, -50%);
+    transform: rotateZ(180deg) scale(0.9) translate(-40%, -65%);
   }
 }
-#top-flashes {
+.splashes {
   transform-origin: center;
   transform-box: fill-box;
-  animation: splashes 2s ease-out infinite;
-  animation-delay: 2s;
+  animation: splashes 3s ease-out 1 forwards;
 }
 @keyframes splashes {
-  from {
+  0% {
     opacity: 0;
     transform: translate(-150%, 50%) scale(1.5);
   }
- to {
+  60% {
     opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
     transform: translate(-150%, 0%) scale(1.5);
   }
-  
 }
 /* svg5 */
-#left-window {
+.left-window {
   transform-origin: left;
   transform-box: fill-box;
   animation: left-window 2s ease-in-out forwards;
@@ -167,7 +174,7 @@ h1 {
     transform: rotateY(180deg);
   }
 }
-#right-window {
+.right-window {
   transform-origin: right;
   transform-box: fill-box;
   animation: right-window 2s ease-in-out forwards;
@@ -177,52 +184,60 @@ h1 {
     transform: rotateY(-180deg);
   }
 }
-#house5 {
+.house5 {
   transform-origin: center;
   transform: scale(2.1);
 }
 /* svg6 */
-#house6 {
+#smoke {
+  animation: smoke 3s ease-in-out infinite forwards;
+}
+@keyframes smoke {
+  to {
+    opacity: 0.5;
+    transform: translateY(-30%);
+  }
+}
+.house6 {
   transform-origin: center;
   transform: scale(2.5);
 }
-#door {
+.door {
   transform-origin: left;
   transform-box: fill-box;
-  animation: door 5s ease-in-out 1 forwards;
-  
-  transition: 4s;
+  animation: door 2s ease-in-out 1 forwards;
 }
 @keyframes door {
   from {
     transform: translateX(0%);
   }
-  
-  to{
+
+  to {
     transform: translateX(-100%);
   }
 }
 /* svg7 */
-#tree-one,
-#tree-two,
-#tree-three,
-#tree-four #tree-seven,
-#tree-six,
-#tree-four {
+.tree-move {
   transform-origin: top;
   transform-box: fill-box;
-  animation: tree 5s ease-in-out infinite;
+  animation: tree 4s linear infinite forwards;
 }
 @keyframes tree {
-  35% {
-    transform: rotateZ(5deg);
-  }
-  60% {
+  0% {
     transform: rotateZ(0deg);
   }
-  
+  35% {
+    transform: rotateX(3deg);
+  }
+  60% {
+    transform: rotateZ(5deg);
+  }
+
   90% {
-    transform: rotateZ(-5deg);
+    transform: rotateZ(3deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
   }
 }
 #tree-two {
@@ -235,16 +250,20 @@ h1 {
 #tree-four {
   animation-delay: 1.5s;
 }
+#tree-five {
+  animation-delay: 1.9s;
+}
 #tree-six {
-  animation-delay: 2s;
+  animation-delay: 2.2s;
+}
+#tree-seven {
+  animation-delay: 2.5s;
 }
 /* svg8 */
-#duck-one,
-#duck-two,
-#duck-three {
+.ducks {
   transform-origin: center;
   transform-box: fill-box;
-  animation: ducks 5s ease-in-out infinite;
+  animation: ducks 3.5s ease-in-out infinite forwards;
 }
 @keyframes ducks {
   25% {
@@ -263,8 +282,10 @@ h1 {
 #duck-two {
   animation-delay: 1s;
 }
-#duck-three {
-  animation: duck 7s ease-in-out infinite;
+.duck {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: duck 3s ease-in-out infinite forwards;
 }
 @keyframes duck {
   25% {
@@ -281,13 +302,13 @@ h1 {
   }
 }
 
-.upper-foot,
-.lower-foot {
+.upper-feet,
+.lower-feet {
   transform-origin: left;
   transform-box: fill-box;
   animation: foot 0.5s ease-in-out infinite;
 }
-.lower-foot {
+.lower-feet {
   animation-delay: 0.25s;
 }
 @keyframes foot {
@@ -305,40 +326,46 @@ h1 {
   }
 }
 /* svg9 */
-#pavilion{
+.pavilion {
   transform-origin: bottom;
-  transform:scale(2.1);
+  transform: scale(2.1);
 }
-#girl-head{
+.head {
   transform-origin: bottom;
   transform-box: fill-box;
-  animation: head 5s ease-in-out infinite;
-  
-  
+  animation: head 3.5s ease-in-out infinite forwards;
 }
-@keyframes head{
-  0%{
-    transform:rotateZ(5deg);
+@keyframes head {
+  0% {
+    transform: rotateZ(5deg);
   }
- 30%{transform:rotateZ(20deg);}
-  60%{transform:rotateZ(-19deg);}
-  100%{
-    transform:rotateZ(-5deg);
+  30% {
+    transform: rotateZ(20deg);
+  }
+  60% {
+    transform: rotateZ(-19deg);
+  }
+  100% {
+    transform: rotateZ(-5deg);
   }
 }
 
-#left-arm{
+.left-arm {
   transform-origin: left;
-  transform-box: fill-box; 
-  animation: left-arm 5s ease-in-out infinite;
+  transform-box: fill-box;
+  animation: left-arm 3.5s ease-in-out infinite forwards;
 }
-@keyframes left-arm{
-  0%{
-    transform:rotateZ(5deg);
+@keyframes left-arm {
+  0% {
+    transform: rotateZ(5deg);
   }
- 30%{transform:rotateZ(10deg);}
-  60%{transform:rotateZ(-10deg);}
-  100%{
-    transform:rotateZ(-5deg);
+  30% {
+    transform: rotateZ(10deg);
+  }
+  60% {
+    transform: rotateZ(-10deg);
+  }
+  100% {
+    transform: rotateZ(-5deg);
   }
 }
