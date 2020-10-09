@@ -11,7 +11,7 @@ const leftWindow = document.querySelector("#left-window");
 const rightWindow = document.querySelector("#right-window");
 const brownHouse = document.querySelector("#house6");
 const topFish = document.querySelector("#top-fish");
-const topSplashes = document.querySelector("#top-splashes");
+//const topSplashes = document.querySelector("#top-splashes");
 const bottomFish = document.querySelector("#bottom-fish");
 const bottomSplashes = document.querySelector("#bottom-splashes");
 const trees = document.querySelectorAll(".tree");
@@ -33,11 +33,13 @@ for (let i = 0; i < svgContainers.length; i++) {
     if (imgId === dogId) {
       //dog animation
       document.getElementById(`dog${num}`).classList.add("dog");
+     
+      document.getElementById(imgId).classList.add('found')
     } else {
       // general and specific animation
       setTimeout(
         () => document.getElementById(`sign${num}`).classList.remove("sign"),
-        1500
+        1200
       );
       switch (imgId) {
         case "overlay1":
@@ -55,7 +57,7 @@ for (let i = 0; i < svgContainers.length; i++) {
         case "overlay4":
           topFish.classList.add("fish");
           bottomFish.classList.add("fish");
-          topSplashes.classList.add("splashes");
+          //topSplashes.classList.add("splashes");
           bottomSplashes.classList.add("splashes");
           break;
         case "overlay5":
