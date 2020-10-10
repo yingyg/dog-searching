@@ -1,3 +1,19 @@
+const hints={
+  overlay1:['It was a hot summer day'],
+  overlay2:["How many sides does a circle have?"],
+  overlay3:["(3*3/3+3)/2"],
+  overlay4:["Wash it and it isn't clean. Don't wash it and then it's clean. What I Am?"],
+  overlay5:["How can you take 2 from 5 and leave 4?"],
+  overlay6:["Guess who has a cat?"],
+  overlay7:["What always runs but never walks, often murmurs, never talks, has a bed but never sleeps, has a mouth but never eats?"],
+  overlay8:["The dog like animal friends"],
+  overlay9:["where do all the ale from the bar go?"]
+  
+}
+const hint=document.getElementById('hint')
+const again=document.getElementById('again')
+const againBtn=document.getElementById('again-btn')
+const result=document.getElementById('result')
 const svgContainers = document.querySelectorAll(".svg-container");
 const door = document.querySelector("#door");
 console.log(door);
@@ -11,7 +27,6 @@ const leftWindow = document.querySelector("#left-window");
 const rightWindow = document.querySelector("#right-window");
 const brownHouse = document.querySelector("#house6");
 const topFish = document.querySelector("#top-fish");
-//const topSplashes = document.querySelector("#top-splashes");
 const bottomFish = document.querySelector("#bottom-fish");
 const bottomSplashes = document.querySelector("#bottom-splashes");
 const trees = document.querySelectorAll(".tree");
@@ -23,28 +38,51 @@ const lowerFeet = document.querySelectorAll(".lower-foot");
 const head = document.getElementById("girl-head");
 const girlArm = document.getElementById("left-arm");
 const pavilion = document.getElementById("pavilion");
-let dogId = `overlay${Math.floor(Math.random() * 9 + 1)}`;
-console.log(dogId);
-for (let i = 0; i < svgContainers.length; i++) {
-  svgContainers[i].addEventListener("click", (e) => {
+
+let clickCount;
+let dogId;
+
+againBtn.addEventListener('click',()=>{
+  //reload to remove previous animation
+  location.reload();
+  startGame()
+})
+
+startGame();
+
+function startGame(){   
+
+  dogId = `overlay${Math.floor(Math.random() * 9 + 1)}`;    
+  clickCount=0;
+  again.classList.add('hide')
+  hint.innerHTML=`Hint : ${hints[dogId][0]}`
+  svgContainers.forEach(x=>x.addEventListener("click",clickHandler,{once:true})); 
+}
+
+function clickHandler(e){     
     let imgId = e.target.id;
     let num = imgId.match(/[1-9]/);
-    console.log(num);
-    if (imgId === dogId) {
-      //dog animation
-      document.getElementById(`dog${num}`).classList.add("dog");
      
-      document.getElementById(imgId).classList.add('found')
+    clickCount++; 
+  
+    if (imgId === dogId) {
+      //dog animation      
+      document.getElementById(`dog${num}`).classList.add("dog");
+      document.getElementById(imgId).classList.add('found')    
+      svgContainers.forEach(x=>x.removeEventListener("click",clickHandler,{once:true})); 
+      setTimeout(()=>{
+        again.classList.remove('hide')       
+      result.innerHTML=`Yeah! You found the dog!`  
+      },2000)  
+      
     } else {
       // general and specific animation
-      setTimeout(
-        () => document.getElementById(`sign${num}`).classList.remove("sign"),
-        1200
-      );
+      document.getElementById(`sign${num}`).classList.remove("sign")
+      
       switch (imgId) {
         case "overlay1":
           watermill.classList.add("watermill");
-
+  
           break;
         case "overlay2":
           monk.classList.add("monk");
@@ -85,6 +123,15 @@ for (let i = 0; i < svgContainers.length; i++) {
           pavilion.classList.add("pavilion");
           break;
       }
-    }
-  });
+      
+      if(clickCount>=2){
+        svgContainers.forEach(x=>x.removeEventListener("click",clickHandler,{once:true}));   
+        setTimeout(()=>{
+          again.classList.remove('hide')     
+         result.innerHTML=`Better luck next time!`  
+        },2000)
+               
+      } 
+    }  
 }
+
