@@ -7,7 +7,10 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
 }
-
+h1 {
+  margin: 5px 0;
+  text-align: center;
+}
 #again {
   position: absolute;
   top: 0;
@@ -23,10 +26,7 @@ body {
   font-size: 1.4rem;
   margin:40vw 0 15px;
 }
-h1 {
-  margin: 5px 0;
-  text-align: center;
-}
+
 
 .btn {
   border: none;
@@ -41,6 +41,7 @@ h1 {
   transform: scale(1.1);
   transition: all 1s;
 }
+
 .container {
   width: 90vw;
   max-width: 900px;
@@ -66,15 +67,14 @@ h1 {
   z-index: 1;
 }
 
-.found {
-  border: 4px solid red;
-}
 .svg {
   position: absolute;
   top: 0;
   left: 0;
 }
-
+.found {
+  border: 4px solid red;
+}
 .sign {
   opacity: 0;
 }
