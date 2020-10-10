@@ -1,19 +1,19 @@
 const hints={
-  overlay1:['It was a hot summer day'],
+  overlay1:['No stone-faced presidents in this one.'],
   overlay2:["How many sides does a circle have?"],
-  overlay3:["(3*3/3+3)/2"],
+  overlay3:["Try to catch the sun and it would only pass you by."],
   overlay4:["Wash it and it isn't clean. Don't wash it and then it's clean. What I Am?"],
   overlay5:["How can you take 2 from 5 and leave 4?"],
-  overlay6:["Guess who has a cat?"],
+  overlay6:["What does a baker need for his bread?"],
   overlay7:["What always runs but never walks, often murmurs, never talks, has a bed but never sleeps, has a mouth but never eats?"],
-  overlay8:["The dog like animal friends"],
-  overlay9:["where do all the ale from the bar go?"]
+  overlay8:["Red foot push clear wave"],
+  overlay9:["Where do all the ale from the bar go?"]
   
 }
 const hint=document.getElementById('hint')
 const again=document.getElementById('again')
 const againBtn=document.getElementById('again-btn')
-const result=document.getElementById('result')
+const resultMessage=document.getElementById('result-message')
 const svgContainers = document.querySelectorAll(".svg-container");
 const door = document.querySelector("#door");
 console.log(door);
@@ -72,7 +72,7 @@ function clickHandler(e){
       svgContainers.forEach(x=>x.removeEventListener("click",clickHandler,{once:true})); 
       setTimeout(()=>{
         again.classList.remove('hide')       
-      result.innerHTML=`Yeah! You found the dog!`  
+      resultMessage.innerHTML=`Yeah! You found the dog!`  
       },2000)  
       
     } else {
@@ -95,7 +95,6 @@ function clickHandler(e){
         case "overlay4":
           topFish.classList.add("fish");
           bottomFish.classList.add("fish");
-          //topSplashes.classList.add("splashes");
           bottomSplashes.classList.add("splashes");
           break;
         case "overlay5":
@@ -128,7 +127,7 @@ function clickHandler(e){
         svgContainers.forEach(x=>x.removeEventListener("click",clickHandler,{once:true}));   
         setTimeout(()=>{
           again.classList.remove('hide')     
-         result.innerHTML=`Better luck next time!`  
+         resultMessage.innerHTML=`Better luck next time!`  
         },2000)
                
       } 

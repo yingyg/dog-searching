@@ -8,6 +8,7 @@ body {
   text-align: center;
 }
 h1 {
+  font-family: 'Sansita Swashed', cursive;
   margin: 5px 0;
   text-align: center;
 }
@@ -20,9 +21,10 @@ h1 {
   max-height: 1100px;
   background-color: #fff;
   opacity: 0.8;
-  z-index: 5;
+  z-index: 2;
+  transition: opacity 2s;
 }
-#result{
+#result-message{
   font-size: 1.4rem;
   margin:40vw 0 15px;
 }
@@ -48,7 +50,6 @@ h1 {
   margin: 10px auto;
   display: flex;
   justify-content: center;
-
   flex-wrap: wrap;
 }
 
@@ -75,13 +76,16 @@ h1 {
 .found {
   border: 4px solid red;
 }
+#sign1,#sign2,#sign3,#sign4,#sign5,#sign6,#sign7,#sign8,#sign9{
+  transition: opacity 2s;
+}
 .sign {
-  opacity: 0;
+ opacity:0; 
 }
 .dog {
   transform-origin: center;
   transform-box: fill-box;
-  animation: dog 3s linear 1 forwards;
+  animation: dog 2s linear 1 forwards;
   transform: rotateY(-360deg);
 }
 @keyframes dog {
@@ -120,6 +124,10 @@ h1 {
 .back-outer {
   animation-delay: 0.2s;
 }
+
+.hide {
+  display: none;
+}
 /* svg1 */
 .watermill {
   transform-origin: center;
@@ -139,7 +147,7 @@ h1 {
 .monk {
   transform-origin: top;
   transform-box: fill-box;
-  animation: monk 3s 1 forwards;
+  animation: monk 2.5s 1 forwards;
 }
 @keyframes monk {
   from {
@@ -152,7 +160,7 @@ h1 {
 .left-lower-arm {
   transform-origin: top;
   transform-box: fill-box;
-  animation: monk-arm 3s ease-in 1;
+  animation: monk-arm 2.5s ease-in 1;
 }
 @keyframes monk-arm {
   from {
@@ -166,7 +174,7 @@ h1 {
 .right-leg {
   transform-origin: top;
   transform-box: fill-box;
-  animation: leg 3s linear 1;
+  animation: leg 2.5s linear 1;
 }
 @keyframes leg {
   0% {
@@ -179,14 +187,14 @@ h1 {
 
 /* svg3 */
 .eagle {
-  animation: eagle 3.5s ease-in-out 1 forwards;
+  animation: eagle 3s ease-in-out 1 forwards;
 }
 @keyframes eagle {
   from {
     transform: rotateX(70deg);
   }
   to {
-    transform: skewX(30deg) scale(3) translate(-3200%, 700%);
+    transform: skewX(30deg) scale(3) translate(-2000%, 400%);
   }
 }
 
@@ -267,7 +275,7 @@ h1 {
 .tree-move {
   transform-origin: top;
   transform-box: fill-box;
-  animation: tree 6s linear infinite;
+  animation: tree 5s linear infinite;
 }
 @keyframes tree {
   0% {
@@ -411,6 +419,8 @@ h1 {
   }
 }
 
-.hide {
-  display: none;
+@media (min-width:1200px){
+  #result-message{
+    margin:30vw 0 15px;
+  }
 }
