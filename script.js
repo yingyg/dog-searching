@@ -5,7 +5,7 @@ const hints={
   overlay4:["Wash it and it isn't clean. Don't wash it and then it's clean. What I Am?"],
   overlay5:["How can you take 2 from 5 and leave 4?"],
   overlay6:["What does a baker need for his bread?"],
-  overlay7:["What always runs but never walks, often murmurs, never talks, has a bed but never sleeps, has a mouth but never eats?"],
+  overlay7:["What always runs but never walks, often murmurs, never talks, has a bed but never sleeps?"],
   overlay8:["Red foot push clear wave"],
   overlay9:["Where do all the ale from the bar go?"]
   

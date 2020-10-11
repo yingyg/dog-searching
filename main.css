@@ -6,11 +6,16 @@
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
+  background-color: ivory;
 }
 h1 {
   font-family: 'Sansita Swashed', cursive;
   margin: 5px 0;
   text-align: center;
+}
+
+#hint{
+  color:rgb(216, 68, 10);
 }
 #again {
   position: absolute;
