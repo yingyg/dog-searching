@@ -204,24 +204,9 @@ h1 {
 }
 
 /* svg4 */
-.fish {
-  transform-origin: center;
-  transform-box: fill-box;
-  animation: fish 3s ease-out infinite;
-}
-@keyframes fish {
-  to {
-    transform: rotateZ(360deg) translateY(-80%);
-  }
-}
-.splashes {
-  animation: splashes 3s ease-in infinite;
-}
-@keyframes splashes {
-  to {
-    opacity: 0.7;
-    transform: rotateZ(360deg);
-  }
+
+#splash1,#splash2,#splash3{
+  opacity: 0;
 }
 /* svg5 */
 .left-window {
@@ -414,10 +399,10 @@ h1 {
     transform: rotateZ(5deg);
   }
   30% {
-    transform: rotateZ(10deg);
+    transform: rotateZ(8deg);
   }
   60% {
-    transform: rotateZ(-10deg);
+    transform: rotateZ(-8deg);
   }
   100% {
     transform: rotateZ(-5deg);

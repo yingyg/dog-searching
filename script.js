@@ -25,9 +25,7 @@ const greyHouse = document.querySelector("#house5");
 const leftWindow = document.querySelector("#left-window");
 const rightWindow = document.querySelector("#right-window");
 
-const topFish = document.querySelector("#top-fish");
-const bottomFish = document.querySelector("#bottom-fish");
-const bottomSplashes = document.querySelector("#bottom-splashes");
+
 const trees = document.querySelectorAll(".tree");
 const duckOne = document.getElementById("duck-one");
 const duckTwo = document.getElementById("duck-two");
@@ -77,7 +75,7 @@ function clickHandler(e){
       
     } else {
       // general and specific animation
-      gsap.fromTo(`#sign${num}`,{yPercent:-100},{yPercent:0,opacity:1,duration:2})
+      gsap.fromTo(`#sign${num}`,{yPercent:-100},{yPercent:0,opacity:1,duration:1})
       switch (imgId) {
         case "overlay1":
           gsap.to("#watermill",{rotation:360,transformOrigin:'center',duration:2, ease:"linear",repeat:-1})
@@ -88,12 +86,18 @@ function clickHandler(e){
           monkLeg.classList.add("right-leg");
           break;
         case "overlay3":
-          gsap.to("#eagle",{rotation:-40,x:-800,scale:2,duration:3,ease:"power1"})
+          gsap.to("#eagle",{rotation:-50,x:-800,scale:2,duration:2,ease:"power1.in"})
           break;
-        case "overlay4":
-          topFish.classList.add("fish");
-          bottomFish.classList.add("fish");
-          bottomSplashes.classList.add("splashes");
+        case "overlay4":          
+          gsap.to("#top-fish",{rotation:360,transformOrigin:"bottom",yPercent:50,duration:1.5,ease:"power1",repeat:-1})
+          
+          gsap.to("#bottom-fish",{rotation:360,transformOrigin:"bottom",yPercent:100,duration:2,ease:"circ",repeat:-1})
+         
+          gsap.from("#splash1",{opacity:1,rotation:360,xPercent:-100,yPercent:-300,duration:2,ease:"circ",repeat:-1})
+          
+          gsap.from("#splash2",{opacity:1,rotation:360,xPercent:-100,yPercent:-300,duration:2,ease:"circ",repeat:-1})
+          
+          gsap.from("#splash3",{opacity:1,rotation:360,xPercent:-100,yPercent:-300,duration:2,ease:"circ",repeat:-1})
           break;
         case "overlay5":
           greyHouse.classList.add("house5");
