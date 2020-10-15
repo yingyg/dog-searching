@@ -15,17 +15,16 @@ const again=document.getElementById('again')
 const againBtn=document.getElementById('again-btn')
 const resultMessage=document.getElementById('result-message')
 const svgContainers = document.querySelectorAll(".svg-container");
-const door = document.querySelector("#door");
-console.log(door);
-const watermill = document.querySelector("#watermill");
+
+
 const monk = document.querySelector("#monk");
 const monkArm = document.querySelector("#left-lower-arm");
 const monkLeg = document.querySelector("#right-leg");
-const eagle = document.querySelector("#eagle");
+
 const greyHouse = document.querySelector("#house5");
 const leftWindow = document.querySelector("#left-window");
 const rightWindow = document.querySelector("#right-window");
-const brownHouse = document.querySelector("#house6");
+
 const topFish = document.querySelector("#top-fish");
 const bottomFish = document.querySelector("#bottom-fish");
 const bottomSplashes = document.querySelector("#bottom-splashes");
@@ -41,6 +40,7 @@ const pavilion = document.getElementById("pavilion");
 
 let clickCount;
 let dogId;
+
 
 againBtn.addEventListener('click',()=>{
   //reload to remove previous animation
@@ -67,7 +67,7 @@ function clickHandler(e){
   
     if (imgId === dogId) {
       //dog animation      
-      document.getElementById(`dog${num}`).classList.add("dog");
+      gsap.to(`#dog${num}`, {xPercent: -250,skewX:-10, scale:1.5, duration: 3, ease: "sine"});  
       document.getElementById(imgId).classList.add('found')    
       svgContainers.forEach(x=>x.removeEventListener("click",clickHandler,{once:true})); 
       setTimeout(()=>{
@@ -77,12 +77,10 @@ function clickHandler(e){
       
     } else {
       // general and specific animation
-      document.getElementById(`sign${num}`).classList.remove("sign")
-      
+      gsap.fromTo(`#sign${num}`,{yPercent:-100},{yPercent:0,opacity:1,duration:2})
       switch (imgId) {
         case "overlay1":
-          watermill.classList.add("watermill");
-  
+          gsap.to("#watermill",{rotation:360,transformOrigin:'center',duration:2, ease:"linear",repeat:-1})
           break;
         case "overlay2":
           monk.classList.add("monk");
@@ -90,7 +88,7 @@ function clickHandler(e){
           monkLeg.classList.add("right-leg");
           break;
         case "overlay3":
-          eagle.classList.add("eagle");
+          gsap.to("#eagle",{rotation:-40,x:-800,scale:2,duration:3,ease:"power1"})
           break;
         case "overlay4":
           topFish.classList.add("fish");
@@ -101,10 +99,11 @@ function clickHandler(e){
           greyHouse.classList.add("house5");
           leftWindow.classList.add("left-window");
           rightWindow.classList.add("right-window");
+          
           break;
         case "overlay6":
-          door.classList.add("door");
-          brownHouse.classList.add("house6");
+          gsap.to("#door",{xPercent:-100,duration:2,ease:"back"})
+          gsap.to("#house6",{scale:2,transformOrigin:"center", duration:1,ease:"linear"})
           break;
         case "overlay7":
           [...trees].forEach((tree) => tree.classList.add("tree-move"));
