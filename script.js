@@ -1,4 +1,4 @@
-const hints={
+/*const hints={
   overlay1:['No stone-faced presidents in this one.'],
   overlay2:["How many sides does a circle have?"],
   overlay3:["Try to catch the sun and it would only pass you by."],
@@ -10,7 +10,7 @@ const hints={
   overlay9:["Where do all the ale from the bar go?"]
   
 }
-const hint=document.getElementById('hint')
+const hint=document.getElementById('hint')*/
 const again=document.getElementById('again')
 const againBtn=document.getElementById('again-btn')
 const resultMessage=document.getElementById('result-message')
@@ -53,7 +53,7 @@ function startGame(){
   dogId = `overlay${Math.floor(Math.random() * 9 + 1)}`;    
   clickCount=0;
   again.classList.add('hide')
-  hint.innerHTML=`Hint : ${hints[dogId][0]}`
+  //hint.innerHTML=`Hint : ${hints[dogId][0]}`
   svgContainers.forEach(x=>x.addEventListener("click",clickHandler,{once:true})); 
 }
 
@@ -70,7 +70,7 @@ function clickHandler(e){
       svgContainers.forEach(x=>x.removeEventListener("click",clickHandler,{once:true})); 
       setTimeout(()=>{
         again.classList.remove('hide')       
-      resultMessage.innerHTML=`Yeah! You found the dog!`  
+      resultMessage.innerHTML=`Yeah! You found the dog with ${clickCount} click(s)!`  
       },2000)  
       
     } else {
@@ -126,7 +126,7 @@ function clickHandler(e){
           break;
       }
       
-      if(clickCount>=2){
+      if(clickCount>=5){
         svgContainers.forEach(x=>x.removeEventListener("click",clickHandler,{once:true}));   
         setTimeout(()=>{
           again.classList.remove('hide')     

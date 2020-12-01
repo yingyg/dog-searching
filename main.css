@@ -24,13 +24,14 @@ h1 {
   width: 100vw;
   height: calc(90vw + 170px);
   max-height: 1100px;
-  background-color: #fff;
-  opacity: 0.8;
+  background-color: #333;
+  opacity: 0.9;
   z-index: 2;
   transition: opacity 2s;
 }
 #result-message{
-  font-size: 1.4rem;
+  color:orange;
+  font-size: 1.5rem;
   margin:40vw 0 15px;
 }
 
@@ -38,10 +39,9 @@ h1 {
 .btn {
   border: none;
   font-size: 1.5rem;
-  color: yellow;
-  background-color: black;
+  background-color: orange;
   border-radius: 5px;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
 }
 .btn:hover {
